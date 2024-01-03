@@ -1,5 +1,7 @@
 # Create2
 
+[![Tests](https://github.com/0xneves/create2/actions/workflows/tests.yml/badge.svg)](https://github.com/0xneves/create2/actions/workflows/tests.yml)
+
 This contract is from OpenZeppelin but was modified to be used with Blockful's interest when creating customized addresses for their contracts.
 
 TL;DR
