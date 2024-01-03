@@ -28,6 +28,7 @@
   },
   "scripts": {
     "test": "npx hardhat test",
+    "compile": "npx hardhat compile",
     "deployer": "npx hardhat run scripts/deployIronicDeployer.ts",
     "deploy": "npx hardhat run scripts/DeploySalted.ts",
     "compute": "npx hardhat run scripts/computeAddress.ts",
