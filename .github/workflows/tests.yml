@@ -11,6 +11,9 @@ jobs:
     name: Unit Tests
     runs-on: ubuntu-latest
 
+    env:
+      DEPLOYER_PRIVATE_KEY: ${{ vars.DEPLOYER_PRIVATE_KEY }}
+
     steps:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1
