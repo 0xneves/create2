@@ -8,7 +8,7 @@ describe("Create2", function () {
   const salt = ethers.utils.formatBytes32String("TestSalt");
 
   it("Should deploy a contract", async function () {
-    const factory = await ethers.getContractFactory("CreateContract");
+    const factory = await ethers.getContractFactory("Seasoning");
     deployer = await factory.deploy();
     await deployer.deployed();
     console.log("Deployed Blockful Deployer at address %s", deployer.address);

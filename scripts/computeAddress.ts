@@ -5,18 +5,27 @@ dotenv.config();
 
 async function main() {
   const [signer] = await ethers.getSigners();
-  const deployer = await ethers.getContractAt(
-    "CreateContract",
-    process.env.DEPLOYER_ADDRESS || "",
+
+  // Assert the connected network to the deployed Chef
+  let chefAddress;
+  if ((await ethers.provider.getNetwork()).chainId == 11155111) {
+    chefAddress = process.env.SEPOLIA_DEPLOYED_ADDRESS;
+  } else if ((await ethers.provider.getNetwork()).chainId == 80001) {
+    chefAddress = process.env.MUMBAI_DEPLOYED_ADDRESS;
+  }
+
+  const Chef = await ethers.getContractAt(
+    "Seasoning",
+    chefAddress || "",
     signer,
   );
 
   const salt =
-    "0xb93198575b01d1fb49e45178787192c087a25a239198513a9ae672e48135c562";
-  const computedAddress = await deployer.computeAddress(
+    "0x5e06643be5cba06442ff1546d5b82b17031235a87424389321acb2975c6ebde2";
+  const computedAddress = await Chef.computeAddress(
     salt,
     ethers.utils.keccak256(bytecode),
-    deployer.address,
+    Chef.address,
   );
   console.log("Computed address: %s", computedAddress);
 }

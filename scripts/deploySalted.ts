@@ -6,13 +6,13 @@ dotenv.config();
 async function main() {
   const [signer] = await ethers.getSigners();
   const deployer = await ethers.getContractAt(
-    "CreateContract",
-    process.env.DEPLOYER_ADDRESS || "",
+    "Seasoning",
+    "0x97e49972DaE2AF00E9E35aA22C2c45c2eD295525",
     signer,
   );
 
   const salt =
-    "0xb93198575b01d1fb49e45178787192c087a25a239198513a9ae672e48135c562";
+    "0x5e06643be5cba06442ff1546d5b82b17031235a87424389321acb2975c6ebde2";
   const address = await deployer.callStatic.deploy(salt, bytecode);
 
   const tx = await deployer.deploy(salt, bytecode);
