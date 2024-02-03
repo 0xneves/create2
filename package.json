@@ -30,7 +30,7 @@
     "test": "npx hardhat test",
     "compile": "npx hardhat compile",
     "deploy:chef": "npx hardhat run scripts/deployChef.ts",
-    "deploy": "npx hardhat run scripts/DeploySalted.ts",
+    "deploy:salt": "npx hardhat run scripts/DeploySalted.ts",
     "compute": "npx hardhat run scripts/computeAddress.ts",
     "find": "npx hardhat run scripts/findAddress.ts"
   }
